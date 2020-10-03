@@ -1,0 +1,60 @@
+<html>
+    <body>
+<form>
+
+    Login:<br>
+    <input type="text" id="login" value=""><br>
+    Nome:<br>
+    <input type="text" id="nome" value=""><br>
+    E-Mail:<br>
+    <input type="text" id="email" value=""><br>
+    Senha:<br>
+    <input type="password" id="password" value=""><br>
+    Confirmar Senha: <br>
+    <input type="password" id="confirma_password" value=""><br><br>
+
+    
+
+    <div id="demo">
+        <button type="button" onclick="loadXMLDoc()">Cadastrar</button>
+    </div>
+<p id="qualquer"></p>
+
+</form>
+</body>
+<script>
+
+function loadXMLDoc() {
+var login = document.getElementById("login").value;
+var nome = document.getElementById("nome").value;
+var email = document.getElementById("email").value;
+var password = document.getElementById("password").value;
+var confirma_password = document.getElementById("confirma_password").value;
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var resposta = JSON.parse(this.responseText);
+        document.getElementById("qualquer").innerHTML = 'Usuário ' + resposta.user.name + ' cadastrado com sucesso!';
+    }
+
+    if (this.readyState == 4 && this.status == 422) {
+        var resposta = JSON.parse(this.responseText);
+        document.getElementById("qualquer").innerHTML = resposta.message
+    }
+};
+xhttp.open("POST", "http://52.91.139.190/fsapi/users/auth/register-jwt", true);
+xhttp.setRequestHeader("Content-type", "application/json");
+xhttp.send(JSON.stringify({
+"login": login,
+"name": nome,
+"email": email,
+"password": password,
+"confirma_password": confirma_password
+} ));
+
+event.preventDefault()
+}
+
+</script>
+
+</html>
