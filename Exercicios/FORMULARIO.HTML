@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <script> function validateForm() {
+            var nome = document.getElementById("Nome").value;
+            if (nome == "") {
+                alert("Escrever Nome Completo")
+                return false;
+            } {
+                var pontos = document.getElementById("pontos").value;
+                if (pontos == "") {
+                    alert("Informar Pontuação")
+                    return false;
+                } {
+                    var nota = document.getElementById("nota").value;
+                    if (nota == "") {
+                        alert("Informar Nota")
+                        return false;
+                    } {
+                        var universidade = document.getElementById("universidade").value;
+                        if (universidade == "") {
+                            alert("Informar Universidade")
+                            return false;
+                        } {
+                            var empresa = document.getElementById("empresa").value;
+                            if (empresa == "") {
+                                alert("Informar Nome da Empresa")
+                            } {
+                                var avatar = document.getElementById("avatar").value;
+                                if ("" == "") {
+                                    alert("Informar Como Quer ser Chamado")
+                                } {
+                                    var horario = document.getElementById("horario").value;
+                                    if (horario == "") {
+                                        alert("Informar Horário")
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <form>
+        Nome:<br>
+        <input type="text" id="Nome" value=""><br>
+        Pontos:<br>
+        <input type="number" id="pontos" value=""><br>
+        Nota:<br>
+        <input type="number" id="nota" value=""><br>
+        Universidade:<br>
+        <input type="text" id="universidade" value=""><br>
+        Empresa:<br>
+        <input type="text" id="empresa" value=""><br>
+        Avatar:<br>
+        <select id="avatar" name="avatar">
+            <option value=""> </option>
+            <option value="masculino">masculino</option>
+            <option value="feminino">feminino</option>
+        </select>
+        <br>
+
+        Horários:<br>
+        <input type="time" id="horario" value=""><br><br>
+
+        <input type="submit" value="Submit" onclick="validateForm()">
+
+    </form>
+    <body>
+</html>
